@@ -10,6 +10,11 @@ The main topics include:
 * Implicit functions
 * Level curves
 
+* *Jacobian and Hessian* (todo)
+* *Homogeneous functions and Euler's theorem* (todo)
+* *Taylor expansion* (todo)
+
+
 ---
 
 ## 1. Chain Rule
@@ -187,8 +192,8 @@ D_vu(x^*)
 ```
 
 > [!TODO]  
-> Add figure: implicit function and level curve.  
-> Path: `assets/images/calculus/implicit-function-level-curve.png`
+> Add figure: gradient.  
+> Path: `assets/images/calculus/gradient.png`
 ---
 
 ## 4. Implicit Function: Dini's Theorem
@@ -237,3 +242,34 @@ The gradient is perpendicular to the level curve:
 Equivalently, the gradient is perpendicular to the tangent direction of the level curve.
 
 For a utility function, an indifference curve is a level curve.
+
+
+---
+
+## 6. Jacobian and Hessian (todo)
+
+Matrix forms of derivatives.
+
+- Jacobian: collects first-order partial derivatives of a vector-valued function.
+- Hessian: collects second-order partial derivatives of a scalar-valued function.
+
+---
+
+## 7. Homogeneous Functions and Euler's Theorem (todo)
+
+Homogeneous functions are used to describe how a function changes when all inputs are scaled by the same factor.
+
+- Main idea: scaling all inputs by \(t\) changes output by \(t^k\).
+- Euler's theorem links homogeneity to marginal products.
+- Use in economics: production functions and returns to scale.
+
+> [!TODO]  
+> Add definition, Euler's theorem, and Cobb-Douglas example.
+
+---
+
+## 8. Taylor Expansion (todo)
+
+Taylor expansion approximates a function around a point using derivatives.
+ 
+> The first-order term is the basis of log-linearization (Solow convergence, RBC); the second-order term connects to the second-order conditions in optimization.
