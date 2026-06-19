@@ -192,23 +192,15 @@ D_vu(x^*)
 ---
 
 ## 4. Implicit Function: Dini's Theorem
-
-Suppose a level curve is defined by
-
+We have
 ```math
-u(x_1,x_2)=c
-```
-
-If
-
-```math
-x_2=f(x_1)
-```
-
-and
-
-```math
+\left\{
+\begin{aligned}
+u(x_1,x_2)=c\\
+x_2=f(x_1)\\
 \frac{\partial u}{\partial x_2}(x_1^0,x_2^0)\neq 0
+\end{aligned}
+\right.
 ```
 
 then, by Dini's theorem / the implicit function theorem,
@@ -244,8 +236,4 @@ The gradient is perpendicular to the level curve:
 
 Equivalently, the gradient is perpendicular to the tangent direction of the level curve.
 
-For a utility function, an indifference curve is a level curve:
-
-```math
-u(x_1,x_2)=\bar{u}
-```
+For a utility function, an indifference curve is a level curve.
