@@ -5,10 +5,8 @@ This note summarizes basic optimization tools used in economics.
 Main topics:
 
 - Unconstrained optimization
-- Equality-constrained optimization
-- Lagrangian method
-- Inequality-constrained optimization
-- KKT conditions
+- Constrained optimization
+- Lagrangian Method and KKT conditions
 - Interior and corner solutions
 - Envelope theorem
 - Types of optimization problems
