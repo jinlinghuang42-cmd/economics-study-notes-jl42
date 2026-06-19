@@ -7,9 +7,9 @@ Main topics:
 - Unconstrained optimization
 - Constrained optimization
 - Lagrangian Method and KKT conditions
-- Interior and corner solutions
-- Envelope theorem
-- Types of optimization problems
+- *Interior and corner solutions* (todo)
+- *Envelope theorem* (todo)
+- *Types of optimization* (todo)
 
 ---
 
@@ -399,7 +399,51 @@ x_2^*\geq0,
 ```
 
 ---
-- Interior and corner solutions
-- Envelope theorem
-- Types of optimization problems
+
+## 4. Interior and Corner Solutions (todo)
+
+This section will summarize the difference between interior and corner solutions in constrained optimization.
+
+Main points to add:
+
+- Interior solution: all choice variables are strictly positive.
+- Corner solution: at least one choice variable equals zero.
+- In KKT conditions, corner solutions are handled by non-negativity constraints and complementary slackness.
+- In economics, corner solutions often appear in consumer choice problems, especially with **perfect substitutes or binding constraints**.
+
+
+---
+
+## 5. Envelope Theorem (todo)
+
+This section will summarize the envelope theorem and its use in comparative statics.
+
+- The envelope theorem studies how the optimized value changes when an external parameter changes.
+- The indirect effect through the optimal choice disappears because of the first-order condition.
+- It is widely used in consumer theory, producer theory, and comparative statics.
+
+Possible applications to add later:
+
+- Indirect utility function
+- Expenditure function
+- Profit function
+- Roy's identity
+- Shephard's lemma
+- Hotelling's lemma
+
+---
+
+## 6. Types of Optimization Problems (todo)
+
+This section will briefly classify common optimization problems.
+
+- Linear programming
+- Nonlinear programming
+- Mixed-integer programming
+- Dynamic programming
+- Optimization under uncertainty
+- Optimization in machine learning
+- ...
+- Economic applications (game theory, DSGE[macroeconomics])
+
 ---
