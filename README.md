@@ -1,6 +1,6 @@
 # Economics Study Notes
 
-A collection of economics notes, formulas, and quantitative research practice.
+A collection of economics study notes, formulas, and mathematical tools.
 
 This repository is used to organize my study notes in economics. At the current stage, the repository mainly focuses on foundational topics such as microeconomics, macroeconomics and mathematical tools. More applied fields and related materials may be added over time.
 
@@ -37,4 +37,4 @@ a reference for organizing these notes in a more structured, geometry-first way 
 concept with intuition and economic meaning rather than formulas alone. *(On my reading list;
 notes and takeaways to be added as I work through it.)*
 
-<!-- add more references as I read -->
+-- will add more references as I read --
