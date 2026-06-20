@@ -306,9 +306,7 @@ This method is complete but can be lengthy when there are many choice variables.
 
 
 #### Case 2: Kuhn-Tucker Formulation
-
 In this formulation, the non-negativity multipliers are not included in the Lagrangian.
-
 ```math
 \mathcal{L}
 =
@@ -316,11 +314,9 @@ u(x_1,x_2)
 -
 \lambda[h(x_1,x_2)-b]
 ```
-
-The usual Lagrangian can be written as
-
+The usual Lagrangian (with the non-negativity multipliers) can be written as
 ```math
-L
+\widetilde{\mathcal{L}}
 =
 \mathcal{L}
 +
@@ -328,17 +324,15 @@ L
 +
 \mu_2x_2
 ```
-
-From the usual Lagrangian FOCs,
-
+From the FOCs of the usual Lagrangian $\widetilde{\mathcal{L}}$,
 ```math
 \left\{
 \begin{aligned}
-\frac{\partial L}{\partial x_1}(x^*)=0
+\frac{\partial \widetilde{\mathcal{L}}}{\partial x_1}(x^*)=0
 &\Rightarrow
 \frac{\partial \mathcal{L}}{\partial x_1}(x^*)=-\mu_1
 \\
-\frac{\partial L}{\partial x_2}(x^*)=0
+\frac{\partial \widetilde{\mathcal{L}}}{\partial x_2}(x^*)=0
 &\Rightarrow
 \frac{\partial \mathcal{L}}{\partial x_2}(x^*)=-\mu_2
 \\
@@ -351,25 +345,19 @@ b-h(x_1^*,x_2^*)\geq 0
 \end{aligned}
 \right.
 ```
-
 Since
-
 ```math
 \mu_1\geq0,
 \quad
 \mu_2\geq0
 ```
-
 we have
-
 ```math
 \frac{\partial \mathcal{L}}{\partial x_1}(x^*)\leq0,
 \quad
 \frac{\partial \mathcal{L}}{\partial x_2}(x^*)\leq0
 ```
-
 Thus, the KKT conditions can be written as:
-
 ```math
 \left\{
 \begin{aligned}
@@ -387,9 +375,7 @@ x_2^*\frac{\partial \mathcal{L}}{\partial x_2}(x^*) &=0
 \end{aligned}
 \right.
 ```
-
 with
-
 ```math
 x_1^*\geq0,
 \quad
