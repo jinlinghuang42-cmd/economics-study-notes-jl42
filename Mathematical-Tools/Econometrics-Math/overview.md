@@ -8,7 +8,9 @@ Economic theory and empirical work draw on different mathematics, because they d
 
 The `Calculus` folder covers the math that **theory** leans on most: optimization, including gradients, Lagrange multipliers, and convexity. The setting is one where a consumer maximizes utility under a budget constraint, a firm maximizes profit, or a planner maximizes welfare. The core action is *solving a model*. Given a model, one computes the optimal choice, so the direction is model → behavior. A typical move there is a first-order condition:
 
-$$\max_{x} \; u(x) \quad\Longrightarrow\quad \nabla u(x^*) = 0.$$
+```math
+\max_{x} \; u(x) \quad\Longrightarrow\quad \nabla u(x^*) = 0.
+```
 
 This folder covers the math that **empirical work (econometrics)** leans on. Probability and statistics are at its core, though the field also borrows from optimization, set theory, and analysis (as the later sections show). The setting is one where data come with random noise and we want to recover the true parameter behind them. The core action is *inferring from data*. Given noisy, incomplete data, the truth is backed out, so the direction is data → parameter. A typical move here is replacing an unknown population average by a sample average.
 
@@ -25,11 +27,15 @@ What is a **structural model**? It is a fully specified model of how an agent ma
 
 **Expectation.** The expectation of a random variable is its probability-weighted average, the "center" it fluctuates around:
 
-$$\mathbb{E}[X] = \sum_x x \, p(x) \quad\text{(discrete)}, \qquad \mathbb{E}[X] = \int x \, f(x)\,dx \quad\text{(continuous)}.$$
+```math
+\mathbb{E}[X] = \sum_x x\, p(x) \quad\text{(discrete)}, \qquad \mathbb{E}[X] = \int x\, f(x)\, dx \quad\text{(continuous)}.
+```
 
 **Variance.** How far $X$ spreads around that center, the second moment:
 
-$$\mathrm{Var}(X) = \mathbb{E}[(X - \mathbb{E}[X])^2].$$
+```math
+\mathrm{Var}(X) = \mathbb{E}[(X - \mathbb{E}[X])^2].
+```
 
 (A note on the word **moment**: in statistics a "moment" is a summary of a distribution, where the first moment is the mean and the second relates to the variance. It has nothing to do with a *matrix*; the two words happen to share the character 矩 in Chinese but are entirely unrelated.)
 
@@ -37,7 +43,9 @@ Mean and variance are the basic summaries that estimators try to match between s
 
 **Conditional expectation.** The average of $Y$ *given* a value of $X$, written $\mathbb{E}[Y \mid X]$. This is the mathematical heart of regression: a regression is essentially an estimate of how this conditional average moves with $X$. Roughly,
 
-$$Y = \mathbb{E}[Y \mid X] + \varepsilon, \qquad \mathbb{E}[\varepsilon \mid X] = 0.$$
+```math
+Y = \mathbb{E}[Y \mid X] + \varepsilon, \qquad \mathbb{E}[\varepsilon \mid X] = 0.
+```
 
 ## 3. Identification
 
@@ -45,17 +53,23 @@ Identification asks a question that comes *before* any data work: even in the be
 
 A concrete example makes this clear. Suppose the data show that cities with more police have more crime, and we want the causal effect of police on crime. The correlation alone cannot deliver it, because at least two opposite stories produce the very same data: police could increase crime, or high-crime cities could hire more police (reverse causation). No sample, however large, can separate these two stories on its own. When different parameter values imply the *same* observable distribution like this, they are called **observationally equivalent**, and the **identified set** $\Theta_I$ collects every parameter value observationally equivalent to the true one $\theta_0$:
 
-$$\Theta_I = \\{\theta \in \Theta : \theta \text{ is observationally equivalent to } \theta_0\\}.$$
+```math
+\Theta_I = \{ \theta \in \Theta : \theta \text{ is observationally equivalent to } \theta_0\}.
+```
 
 The parameter is **point identified** if this set is a single value, $\mathrm{card}(\Theta_I) = 1$ (the standard case usually assumed), and **partially identified** if it is larger than a point but smaller than everything, $1 < \mathrm{card}(\Theta_I) < \mathrm{card}(\Theta)$, so the data narrow the parameter to a region but not to one value. An **identifying assumption** is what rules out the rival stories and shrinks $\Theta_I$. This is exactly what the standard designs do: randomizing which cities get more police (**RCT**) rules out reverse causation by construction; an instrument that shifts police for reasons unrelated to crime (**IV**) isolates the effect through its exclusion restriction; comparing before-and-after across treated and untreated cities (**DID**) relies on parallel trends. Each is an assumption strong enough to collapse $\Theta_I$ to a single point.
 
 **Partial identification** takes the opposite stance: rather than impose a strong assumption that might be wrong, it keeps only weak, credible assumptions and accepts that the answer is a *set*, an honest range the effect must lie in. Such models often deliver **moment inequalities** (rather than equalities) that carve the set out:
 
-$$\Theta_I = \\{\theta \in \Theta : \mathbb{E}[m(W, \theta)] \geq 0\\},$$
+```math
+\Theta_I = \{ \theta \in \Theta : \mathbb{E}[m(W, \theta)] \geq 0\},
+```
 
 and to say how close an estimated set is to the true one, the ordinary $|\hat\theta - \theta|$ no longer works, so a distance *between sets* is needed, the **Hausdorff distance**:
 
-$$d_H(A, B) = \max \\{ \sup_{a \in A}\inf_{b \in B} d(a,b),\ \sup_{b \in B}\inf_{a \in A} d(a,b) \\}.$$
+```math
+d_H(A, B) = \max \{ \sup_{a \in A}\inf_{b \in B} d(a,b),\ \sup_{b \in B}\inf_{a \in A} d(a,b) \}.
+```
 
 So the two roads trade off the same thing in opposite directions: point identification (RCT, IV, DID) bets on a strong assumption to get one precise number, while partial identification gives up precision for a range that is far more likely to be correct.
 
@@ -80,11 +94,15 @@ Identification is what justifies the key assumption behind each causal design, a
 
 An estimator is defined as the solution to an optimization: OLS minimizes the squared residuals, MLE maximizes a likelihood, GMM minimizes a weighted quadratic in the moments. So a first-order condition appears, and this is exactly where the calculus from the other folder re-enters:
 
-$$\hat\theta = \arg\min_{\theta} Q_n(\theta) \quad\Longrightarrow\quad \frac{\partial Q_n(\hat\theta)}{\partial \theta} = 0.$$
+```math
+\hat\theta = \arg\min_{\theta} Q_n(\theta) \quad\Longrightarrow\quad \frac{\partial Q_n(\hat\theta)}{\partial \theta} = 0.
+```
 
 That the estimate actually lands on the truth as the sample grows, a property called **consistency** ($\hat\theta \xrightarrow{p} \theta_0$), rests on the **Law of Large Numbers (LLN)**, which says the sample average converges to the population mean:
 
-$$\bar{X}_n = \frac{1}{n}\sum_{i=1}^{n} X_i \;\xrightarrow{p}\; \mathbb{E}[X].$$
+```math
+\bar{X}_n = \frac{1}{n}\sum_{i=1}^{n} X_i \;\xrightarrow{p}\; \mathbb{E}[X].
+```
 
 This is the formal reason "sample mean ≈ population mean" is allowed at all.
 
@@ -101,7 +119,9 @@ MLE can in fact be written as a special case of GMM, so GMM is the wider framewo
 
 Once an estimate is in hand, its random wobble around the truth is described by a distributional limit. The **Central Limit Theorem (CLT)** says that, scaled by $\sqrt{n}$, this wobble is approximately normal, *whatever* the original distribution of the data:
 
-$$\sqrt{n}\,(\hat\theta - \theta_0) \;\xrightarrow{d}\; \mathcal{N}(0,\ V).$$
+```math
+\sqrt{n}\,(\hat\theta - \theta_0) \;\xrightarrow{d}\; \mathcal{N}(0,\ V).
+```
 
 That predictable normal limit is what produces standard errors, confidence intervals, and tests. Pushing inference to whole functions (nonparametrics, ML-based causal inference) needs **empirical process theory**, the deep end.
 
