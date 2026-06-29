@@ -45,17 +45,17 @@ Identification asks a question that comes *before* any data work: even in the be
 
 A concrete example makes this clear. Suppose the data show that cities with more police have more crime, and we want the causal effect of police on crime. The correlation alone cannot deliver it, because at least two opposite stories produce the very same data: police could increase crime, or high-crime cities could hire more police (reverse causation). No sample, however large, can separate these two stories on its own. When different parameter values imply the *same* observable distribution like this, they are called **observationally equivalent**, and the **identified set** $\Theta_I$ collects every parameter value observationally equivalent to the true one $\theta_0$:
 
-$$\Theta_I = \{\theta \in \Theta : \theta \text{ is observationally equivalent to } \theta_0\}.$$
+$$\Theta_I = \\{\theta \in \Theta : \theta \text{ is observationally equivalent to } \theta_0\\}.$$
 
 The parameter is **point identified** if this set is a single value, $\mathrm{card}(\Theta_I) = 1$ (the standard case usually assumed), and **partially identified** if it is larger than a point but smaller than everything, $1 < \mathrm{card}(\Theta_I) < \mathrm{card}(\Theta)$, so the data narrow the parameter to a region but not to one value. An **identifying assumption** is what rules out the rival stories and shrinks $\Theta_I$. This is exactly what the standard designs do: randomizing which cities get more police (**RCT**) rules out reverse causation by construction; an instrument that shifts police for reasons unrelated to crime (**IV**) isolates the effect through its exclusion restriction; comparing before-and-after across treated and untreated cities (**DID**) relies on parallel trends. Each is an assumption strong enough to collapse $\Theta_I$ to a single point.
 
 **Partial identification** takes the opposite stance: rather than impose a strong assumption that might be wrong, it keeps only weak, credible assumptions and accepts that the answer is a *set*, an honest range the effect must lie in. Such models often deliver **moment inequalities** (rather than equalities) that carve the set out:
 
-$$\Theta_I = \{\theta \in \Theta : \mathbb{E}[m(W, \theta)] \geq 0\},$$
+$$\Theta_I = \\{\theta \in \Theta : \mathbb{E}[m(W, \theta)] \geq 0\\},$$
 
 and to say how close an estimated set is to the true one, the ordinary $|\hat\theta - \theta|$ no longer works, so a distance *between sets* is needed, the **Hausdorff distance**:
 
-$$d_H(A, B) = \max\{\, \sup_{a \in A}\inf_{b \in B} d(a,b),\ \sup_{b \in B}\inf_{a \in A} d(a,b) \,\}.$$
+$$d_H(A, B) = \max \\{ \sup_{a \in A}\inf_{b \in B} d(a,b),\ \sup_{b \in B}\inf_{a \in A} d(a,b) \\}.$$
 
 So the two roads trade off the same thing in opposite directions: point identification (RCT, IV, DID) bets on a strong assumption to get one precise number, while partial identification gives up precision for a range that is far more likely to be correct.
 
