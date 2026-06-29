@@ -273,3 +273,21 @@ Homogeneous functions are used to describe how a function changes when all input
 Taylor expansion approximates a function around a point using derivatives.
  
 > The first-order term is the basis of log-linearization (Solow convergence, RBC); the second-order term connects to the second-order conditions in optimization.
+
+
+---
+
+## Reference
+
+Partly inspired by:
+
+> **Eric Hillebrand (2026), "Teaching Mathematics for Economists."**
+> In *Teaching Econometrics*, eds. E. Hillebrand & W. Griffiths, Springer.
+> DOI: [10.1007/978-3-031-97942-2_20](https://doi.org/10.1007/978-3-031-97942-2_20)
+
+A chapter on how to teach and learn the mathematical tools used in economics. I'm using it as
+a reference for organizing these notes in a more structured, geometry-first way — pairing each
+concept with intuition and economic meaning rather than formulas alone. *(On my reading list;
+notes and takeaways to be added as I work through it.)*
+
+-- will add more references as I read --
