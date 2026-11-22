@@ -400,22 +400,398 @@ Main points to add:
 
 ---
 
-## 5. Envelope Theorem (todo)
+## 5. Envelope Theorem
 
-This section will summarize the envelope theorem and its use in comparative statics.
+The **Envelope Theorem** provides a convenient method for comparative statics analysis. It allows us to examine how changes in exogenous parameters affect the optimized value of an objective function, without explicitly differentiating the optimal decision variables.
 
-- The envelope theorem studies how the optimized value changes when an external parameter changes.
-- The indirect effect through the optimal choice disappears because of the first-order condition.
-- It is widely used in consumer theory, producer theory, and comparative statics.
+### 5.1 Static Analysis vs. Comparative Statics vs. Dynamic Analysis
 
-Possible applications to add later:
+- **Static analysis:** Studies equilibrium given a fixed set of exogenous parameters.
+- **Comparative statics:** Examines how equilibrium changes when exogenous parameters change, without explicitly considering the adjustment process over time.
+- **Dynamic analysis:** Studies intertemporal relationships among variables and the evolution of an economy over time.
 
-- Indirect utility function
-- Expenditure function
-- Profit function
-- Roy's identity
-- Shephard's lemma
-- Hotelling's lemma
+The Envelope Theorem is particularly useful for analyzing the effect of parameter changes on **optimized value functions**.
+
+&nbsp;
+
+### 5.2 The Principle of the Envelope Theorem
+
+Consider the optimization problem:
+
+```math
+\max_x f(x,a),
+```
+
+where $x$ is the choice variable and $a$ is an exogenous parameter.
+
+Assume an interior optimum $x^*(a)$ satisfying the FOC:
+
+```math
+\frac{\partial f(x^*(a),a)}{\partial x}=0.
+```
+
+Define the optimized value function:
+
+```math
+M(a)=f(x^*(a),a).
+```
+
+By the chain rule,
+
+```math
+\frac{dM(a)}{da}
+=
+\underbrace{
+\frac{\partial f}{\partial x}
+\frac{dx^*(a)}{da}
+}_{\text{Indirect effect}}
++
+\underbrace{
+\frac{\partial f}{\partial a}
+}_{\text{Direct effect}}.
+```
+
+At the optimum,
+
+```math
+\frac{\partial f}{\partial x}=0.
+```
+
+Hence,
+
+```math
+\boxed{
+\frac{dM(a)}{da}
+=
+\left.
+\frac{\partial f(x,a)}{\partial a}
+\right|_{x=x^*(a)}
+}.
+```
+
+The indirect effect disappears due to the FOC.
+
+The same principle applies to an interior minimization problem under appropriate regularity conditions.
+
+**Constrained optimization**
+
+For a constrained problem, the corresponding envelope result can be expressed using the Lagrangian:
+
+```math
+\boxed{
+\frac{dV(a)}{da}
+=
+\left.
+\frac{\partial\mathcal L}{\partial a}
+\right|_{\text{optimum}}
+}.
+```
+
+This assumes suitable differentiability and constraint qualifications.
+
+&nbsp;
+
+### 5.3 Applications in Consumer Theory
+
+#### 5.3.1 Utility Maximization: Marshallian Demand and Roy's Identity
+
+Consider the consumer's utility maximization problem:
+
+```math
+v(p,y)
+=
+\max_{x\geq0}u(x)
+\quad
+\text{s.t.}\quad p\cdot x\leq y.
+```
+
+- $v(p,y)$: **Indirect Utility Function**
+- $x^M(p,y)$: **Marshallian (Uncompensated) Demand**
+
+The optimal consumption bundle is
+
+```math
+x^M(p,y)
+\in
+\arg\max_{x\geq0}
+\left\{u(x):p\cdot x\leq y\right\}.
+```
+
+Construct the Lagrangian:
+
+```math
+\mathcal L
+=
+u(x)+\lambda(y-p\cdot x).
+```
+
+By the Envelope Theorem,
+
+```math
+\boxed{
+\frac{\partial v(p,y)}{\partial y}
+=
+\lambda^*
+}
+```
+
+and
+
+```math
+\boxed{
+\frac{\partial v(p,y)}{\partial p_i}
+=
+-\lambda^*x_i^M(p,y)
+}.
+```
+
+Combining the two expressions:
+
+```math
+\boxed{
+x_i^M(p,y)
+=
+-\frac{
+\partial v(p,y)/\partial p_i
+}{
+\partial v(p,y)/\partial y
+}
+}.
+```
+
+This is **Roy's Identity**.
+
+It recovers Marshallian demand from the derivatives of the indirect utility function, assuming $\partial v/\partial y>0$.
+
+&nbsp;
+
+#### 5.3.2 Expenditure Minimization: Hicksian Demand and Shephard's Lemma
+
+Consider the expenditure minimization problem:
+
+```math
+e(p,\bar u)
+=
+\min_{x\geq0}p\cdot x
+\quad
+\text{s.t.}\quad u(x)\geq\bar u.
+```
+
+- $e(p,\bar u)$: **Expenditure Function**
+- $x^H(p,\bar u)$: **Hicksian (Compensated) Demand**
+
+The optimal consumption bundle is
+
+```math
+x^H(p,\bar u)
+\in
+\arg\min_{x\geq0}
+\left\{p\cdot x:u(x)\geq\bar u\right\}.
+```
+
+Thus,
+
+```math
+e(p,\bar u)
+=
+p\cdot x^H(p,\bar u).
+```
+
+Construct the Lagrangian:
+
+```math
+\mathcal L
+=
+p\cdot x+\lambda[\bar u-u(x)].
+```
+
+By the Envelope Theorem,
+
+```math
+\boxed{
+\frac{\partial e(p,\bar u)}{\partial p_i}
+=
+x_i^H(p,\bar u)
+}.
+```
+
+This is **Shephard's Lemma**.
+
+It recovers Hicksian demand from the expenditure function.
+
+Similarly,
+
+```math
+\boxed{
+\frac{\partial e(p,\bar u)}{\partial\bar u}
+=
+\lambda^*\geq0
+}.
+```
+
+The multiplier measures the marginal expenditure required to increase the target utility level.
+
+**Marshallian vs. Hicksian Demand**
+
+- **Marshallian Demand** $x^M(p,y)$: Maximizes utility given prices and income.
+- **Hicksian Demand** $x^H(p,\bar u)$: Minimizes expenditure given prices and a fixed utility level.
+
+&nbsp;
+
+### 5.4 Applications in Production Theory
+
+#### 5.4.1 Profit Maximization: Hotelling's Lemma
+
+Consider the profit maximization problem:
+
+```math
+\pi(p,w)
+=
+\max_{z\geq0}
+\left\{
+pf(z)-w\cdot z
+\right\},
+```
+
+where $p$ is the output price, $w$ is the vector of input prices, and $z$ is the input vector.
+
+By the Envelope Theorem,
+
+```math
+\boxed{
+\frac{\partial\pi(p,w)}{\partial p}
+=
+q^*
+}
+```
+
+where $q^*=f(z^*)$ is optimal output.
+
+Similarly,
+
+```math
+\boxed{
+\frac{\partial\pi(p,w)}{\partial w_i}
+=
+-z_i^*
+}.
+```
+
+These are applications of **Hotelling's Lemma**:
+
+- $\partial\pi/\partial p=q^*$: **Output Supply**
+- $-\partial\pi/\partial w_i=z_i^*$: **Factor Demand**
+
+&nbsp;
+
+#### 5.4.2 Cost Minimization: Conditional Factor Demand
+
+Consider
+
+```math
+C(w,q)
+=
+\min_{z\geq0}w\cdot z
+\quad
+\text{s.t.}\quad f(z)\geq q.
+```
+
+The cost function $C(w,q)$ represents the minimum cost of producing output $q$ at input prices $w$.
+
+By the Envelope Theorem,
+
+```math
+\boxed{
+\frac{\partial C(w,q)}{\partial w_i}
+=
+z_i^c(w,q)
+}.
+```
+
+This gives **Conditional Factor Demand**.
+
+Similarly,
+
+```math
+\boxed{
+\frac{\partial C(w,q)}{\partial q}
+=
+MC(w,q)
+}.
+```
+
+The derivative of the cost function with respect to output gives **Marginal Cost**.
+
+&nbsp;
+
+### 5.5 Connection to the Slutsky Equation
+
+Marshallian and Hicksian demand are connected through the expenditure function:
+
+```math
+x_i^H(p,\bar u)
+=
+x_i^M(p,e(p,\bar u)).
+```
+
+Differentiate with respect to $p_j$, holding $\bar u$ constant:
+
+```math
+\frac{\partial x_i^H}{\partial p_j}
+=
+\frac{\partial x_i^M}{\partial p_j}
++
+\frac{\partial x_i^M}{\partial y}
+\frac{\partial e}{\partial p_j}.
+```
+
+By **Shephard's Lemma**,
+
+```math
+\frac{\partial e(p,\bar u)}{\partial p_j}
+=
+x_j^H(p,\bar u).
+```
+
+At $\bar u=v(p,y)$,
+
+```math
+x_j^H(p,\bar u)=x_j^M(p,y).
+```
+
+Substituting,
+
+```math
+\frac{\partial x_i^H}{\partial p_j}
+=
+\frac{\partial x_i^M}{\partial p_j}
++
+x_j^M
+\frac{\partial x_i^M}{\partial y}.
+```
+
+Rearranging gives the **Slutsky Equation**:
+
+```math
+\boxed{
+\frac{\partial x_i^M}{\partial p_j}
+=
+\underbrace{
+\frac{\partial x_i^H}{\partial p_j}
+}_{\text{Substitution effect}}
+-
+\underbrace{
+x_j^M
+\frac{\partial x_i^M}{\partial y}
+}_{\text{Income effect adjustment}}
+}.
+```
+
+The equation decomposes the Marshallian price effect into a substitution effect and an income effect adjustment.
+
+Although the Slutsky Equation is not itself an Envelope Theorem identity, its derivation uses **Shephard's Lemma** to connect the expenditure function with Hicksian demand.
+
+
 
 ---
 
