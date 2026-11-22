@@ -8,7 +8,7 @@ Main topics:
 - Constrained optimization
 - Lagrangian Method and KKT conditions
 - *Interior and corner solutions* (todo)
-- *Envelope theorem* (todo)
+- Envelope theorem
 - *Types of optimization* (todo)
 
 ---
